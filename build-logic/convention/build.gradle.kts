@@ -2,7 +2,7 @@ plugins {
     `kotlin-dsl`
 }
 
-group = "com.pekka.koreanwordclock.buildlogic"
+group = "com.pekka.buildlogic"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_11
@@ -17,15 +17,15 @@ dependencies {
 gradlePlugin {
     plugins {
         register("androidApplicationCompose") {
-            id = "com.pekka.koreanwordclock.android.application.compose"
+            id = "com.pekka.android.application.compose"
             implementationClass = "AndroidApplicationComposeConventionPlugin"
         }
         register("androidLibrary") {
-            id = "com.pekka.koreanwordclock.android.library"
+            id = "com.pekka.android.library"
             implementationClass = "AndroidLibraryConventionPlugin"
         }
         register("androidLibraryCompose") {
-            id = "com.pekka.koreanwordclock.android.library.compose"
+            id = "com.pekka.android.library.compose"
             implementationClass = "AndroidLibraryComposeConventionPlugin"
         }
     }

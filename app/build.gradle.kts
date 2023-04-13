@@ -1,6 +1,6 @@
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id("com.pekka.koreanwordclock.android.application.compose")
+    id("com.pekka.android.application.compose")
     alias(libs.plugins.ktlint)
 }
 android {

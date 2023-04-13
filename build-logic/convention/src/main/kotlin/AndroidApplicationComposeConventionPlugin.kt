@@ -1,6 +1,6 @@
 import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
-import com.pekka.koreanwordclock.configureAndroidCompose
-import com.pekka.koreanwordclock.configureKotlinAndroid
+import com.pekka.configureAndroidCompose
+import com.pekka.configureKotlinAndroid
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
