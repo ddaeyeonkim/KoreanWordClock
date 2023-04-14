@@ -8,4 +8,6 @@ android {
 
 dependencies {
     implementation(projects.dataLocal)
+
+    implementation(libs.hilt.core)
 }

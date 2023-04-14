@@ -5,3 +5,7 @@ plugins {
 android {
     namespace = "com.pekka.data.local"
 }
+
+dependencies {
+    implementation(libs.hilt.core)
+}
