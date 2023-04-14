@@ -43,6 +43,7 @@ dependencies {
     debugImplementation(libs.bundles.compose.debug)
 
     implementation(libs.hilt.android)
+    implementation(libs.hilt.navigation.compose)
     kapt(libs.hilt.compiler)
 
     testImplementation(libs.junit4)
