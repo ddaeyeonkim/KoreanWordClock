@@ -2,8 +2,9 @@ package com.pekka.data.repository
 
 import com.pekka.data.local.SettingDataSource
 import com.pekka.data.model.UiMode
+import javax.inject.Inject
 
-class SettingRepositoryImpl(
+class SettingRepositoryImpl @Inject constructor(
     private val settingDataSource: SettingDataSource,
 ) : SettingRepository {
     override fun getUiMode(): UiMode {
