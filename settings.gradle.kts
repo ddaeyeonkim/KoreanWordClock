@@ -19,3 +19,4 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 rootProject.name = "KoreanWordClock"
 include(":app")
 include(":common")
+include(":data")
