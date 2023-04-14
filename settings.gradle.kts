@@ -20,3 +20,4 @@ rootProject.name = "KoreanWordClock"
 include(":app")
 include(":common")
 include(":data")
+include(":data-local")
