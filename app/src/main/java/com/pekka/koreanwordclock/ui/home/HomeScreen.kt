@@ -1,5 +1,6 @@
 package com.pekka.koreanwordclock.ui.home
 
+import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,6 +16,7 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.pekka.koreanwordclock.ui.composables.KoreanWordClock
+import com.pekka.koreanwordclock.ui.composables.lifecycle.DisposableEffectWithLifecycle
 import kotlin.math.min
 
 @Composable
@@ -28,9 +30,22 @@ fun HomeScreen(viewModel: HomeViewModel) {
 
     val size = min(screenWidth, screenHeight) * 0.8f
 
+    DisposableEffectWithLifecycle(
+        onStart = {
+            Log.e("test", "onStart")
+            viewModel.start()
+        },
+        onStop = {
+            Log.e("test", "onStop")
+            viewModel.stop()
+        },
+    )
+
     Scaffold { innerPadding ->
         Column(
-            modifier = Modifier.fillMaxSize().padding(innerPadding),
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
