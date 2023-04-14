@@ -5,11 +5,9 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.pekka.common.activity.BaseActivity
+import com.pekka.koreanwordclock.ui.composables.Greeting
 import com.pekka.koreanwordclock.ui.theme.KoreanWordClockTheme
 
 class MainActivity : BaseActivity() {
@@ -26,18 +24,5 @@ class MainActivity : BaseActivity() {
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    KoreanWordClockTheme {
-        Greeting("Android")
     }
 }
