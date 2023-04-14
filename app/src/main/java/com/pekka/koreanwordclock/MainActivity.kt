@@ -9,7 +9,9 @@ import androidx.compose.ui.Modifier
 import com.pekka.common.activity.BaseActivity
 import com.pekka.koreanwordclock.ui.composables.Greeting
 import com.pekka.koreanwordclock.ui.theme.KoreanWordClockTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
