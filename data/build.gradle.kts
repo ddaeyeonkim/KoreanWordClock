@@ -5,3 +5,7 @@ plugins {
 android {
     namespace = "com.pekka.data"
 }
+
+dependencies {
+    implementation(projects.dataLocal)
+}
