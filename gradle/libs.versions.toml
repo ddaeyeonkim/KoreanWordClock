@@ -6,6 +6,7 @@ composeCompiler = "1.4.4"
 navigation = "2.5.3"
 material3 = "1.1.0-beta02"
 activity = "1.7.0"
+hilt = "2.44"
 
 compileSdk = "33"
 targetSdk = "33"
@@ -26,6 +27,8 @@ androidx-navigation-compose = { module = "androidx.navigation:navigation-compose
 junit4 = "junit:junit:4.13.2"
 androidx-test-ext-junit = "androidx.test.ext:junit:1.1.5"
 androidx-test-espresso-core = "androidx.test.espresso:espresso-core:3.5.1"
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
+hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
 
 # Dependencies of the included build-logic
 kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
@@ -60,3 +63,4 @@ android-library = { id = "com.android.library", version.ref = "android-plugin" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 ktlint = "org.jlleitschuh.gradle.ktlint:11.0.0"
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }

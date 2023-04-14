@@ -1,6 +1,7 @@
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("com.pekka.android.application.compose")
+    alias(libs.plugins.hilt)
     alias(libs.plugins.ktlint)
 }
 android {
@@ -40,6 +41,9 @@ dependencies {
 
     implementation(libs.bundles.android)
     debugImplementation(libs.bundles.compose.debug)
+
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
 
     testImplementation(libs.junit4)
     androidTestImplementation(libs.bundles.test.android)
