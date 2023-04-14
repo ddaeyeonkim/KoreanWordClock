@@ -5,6 +5,7 @@ compose = "1.4.1"
 composeCompiler = "1.4.4"
 navigation = "2.5.3"
 material3 = "1.1.0-beta02"
+activity = "1.7.0"
 
 compileSdk = "33"
 targetSdk = "33"
@@ -13,7 +14,8 @@ minSdk = "26"
 [libraries]
 androidx-core-ktx = "androidx.core:core-ktx:1.9.0"
 androidx-lifecycle-runtime-ktx = "androidx.lifecycle:lifecycle-runtime-ktx:2.6.1"
-androidx-activity-compose = "androidx.activity:activity-compose:1.7.0"
+androidx-activity = { module = "androidx.activity:activity", version.ref = "activity" }
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity" }
 androidx-compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "material3" }
 androidx-compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
 androidx-compose-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "compose" }
@@ -33,6 +35,7 @@ android-gradle-plugin = { module = "com.android.tools.build:gradle", version.ref
 android = [
     "androidx-core-ktx",
     "androidx-lifecycle-runtime-ktx",
+    "androidx-activity",
 ]
 compose = [
     "androidx-activity-compose",
