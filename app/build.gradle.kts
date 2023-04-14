@@ -39,6 +39,7 @@ ktlint {
 dependencies {
     implementation(projects.common)
     implementation(projects.data)
+    implementation(projects.dataLocal)
 
     implementation(libs.bundles.android)
     debugImplementation(libs.bundles.compose.debug)
