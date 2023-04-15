@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -19,8 +18,8 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.LineHeightStyle
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.pekka.koreanwordclock.ui.model.Word
@@ -33,21 +32,31 @@ fun KoreanWordClock(
     hour: Int,
     minute: Int,
     modifier: Modifier = Modifier,
-    fontSize: TextUnit = 24.sp,
+    size: Int = 300,
+    wordPadding: Int = 0,
     fontFamily: FontFamily = nanumMyeongjoFamily,
 ) {
     val words = createCurrentKoreanWords(hour, minute)
+
+    val wordPerRow = 6
+    val padding = 16
+    val wordSize = (size - padding * 2) / wordPerRow
 
     Surface(
         color = Color(0x33000000),
     ) {
         Column(
-            modifier = modifier.aspectRatio(1f),
+            modifier = modifier.width(size.dp).aspectRatio(1f).padding(padding.dp),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            words.chunked(6).forEach { row ->
-                KoreanWordRow(row, fontSize, fontFamily)
+            words.chunked(wordPerRow).forEach { row ->
+                KoreanWordRow(
+                    row,
+                    wordSize = wordSize,
+                    wordPadding = wordPadding,
+                    fontFamily = fontFamily,
+                )
             }
         }
     }
@@ -56,7 +65,8 @@ fun KoreanWordClock(
 @Composable
 fun KoreanWordRow(
     words: List<Word>,
-    fontSize: TextUnit = 24.sp,
+    wordSize: Int,
+    wordPadding: Int,
     fontFamily: FontFamily = nanumMyeongjoFamily,
 ) {
     Row(
@@ -68,7 +78,8 @@ fun KoreanWordRow(
                 word = word.word,
                 isActive = word.isActive,
                 color = word.color,
-                fontSize = fontSize,
+                wordSize = wordSize,
+                wordPadding = wordPadding,
                 fontFamily = fontFamily,
             )
         }
@@ -81,16 +92,16 @@ fun KoreanWord(
     modifier: Modifier = Modifier,
     isActive: Boolean,
     color: Color,
-    fontSize: TextUnit = 24.sp,
+    wordSize: Int = 20,
+    wordPadding: Int = 0,
     fontFamily: FontFamily = nanumMyeongjoFamily,
     ) {
-    Text(
+    AutoSizeText(
         word,
-        modifier = modifier.padding(4.dp),
+        modifier = modifier.width(wordSize.dp).aspectRatio(1f).padding(wordPadding.dp),
         color = if (isActive) color else Color.Gray,
-        fontFamily = fontFamily,
-        fontSize = fontSize,
-        fontWeight = FontWeight.ExtraBold,
+        fontSize = (wordSize - (wordPadding * 2)).sp,
+        textAlign = TextAlign.Center,
         style = LocalTextStyle.current.merge(
             TextStyle(
                 platformStyle = PlatformTextStyle(
@@ -99,16 +110,18 @@ fun KoreanWord(
                 lineHeightStyle = LineHeightStyle(
                     alignment = LineHeightStyle.Alignment.Center,
                     trim = LineHeightStyle.Trim.Both,
-                )
+                ),
+                fontFamily = fontFamily,
+                fontWeight = FontWeight.ExtraBold,
             )
-        )
+        ),
     )
 }
 
 @Preview
 @Composable
 fun KoreanWordPreview() {
-    KoreanWord("한", isActive = true, color = Color.Red)
+    KoreanWord("한", wordSize = 20, isActive = true, color = Color.Red)
 }
 
 @Preview
@@ -117,7 +130,8 @@ fun KoreanWordClockPreview() {
     KoreanWordClock(
         hour = 12,
         minute = 29,
-        modifier = Modifier.width(300.dp),
+        modifier = Modifier,
+        wordPadding = 4,
         fontFamily = nanumGothicFamily,
     )
 }
